@@ -7,8 +7,12 @@ const config = require('./settings.json');
 
 function createBot() {
    const bot = mineflayer.createBot({
-     'host': 'lifestealsmps1.ploudos.me',
-     'username': 'xXMCBot69Xx'
+      username: config['bot-account']['username'],
+      password: config['bot-account']['password'],
+      auth: config['bot-account']['type'],
+      host: config.server.ip,
+      port: config.server.port,
+      version: config.server.version,
    });
 
    bot.loadPlugin(pathfinder);

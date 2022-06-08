@@ -1,3 +1,13 @@
+const express = require('express')
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
 const mineflayer = require('mineflayer');
 const Movements = require('mineflayer-pathfinder').Movements;
 const pathfinder = require('mineflayer-pathfinder').pathfinder;
@@ -28,7 +38,6 @@ function createBot() {
 
          var password = config.utils['auto-auth'].password;
          setTimeout(() => {
-            bot.chat(`/register ${password} ${password}`);
             bot.chat(`/login ${password}`);
          }, 500);
 
@@ -113,5 +122,4 @@ function createBot() {
       console.log(`\x1b[31m[ERROR] ${err.message}`, '\x1b[0m')
    );
 }
-
 createBot();
